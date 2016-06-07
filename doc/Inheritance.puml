@@ -1,0 +1,38 @@
+@startuml
+hide circle
+hide attributes
+hide methods
+
+' TODO: to be completed
+
+package PyQt5 {
+  package QtWidgets {
+    class QMainWindow
+    class QApplication
+    class QWidget
+    class QPushButton
+    class QLabel
+    class QLCDNumber
+    class QListWidget
+    class QMenuBar
+    class QMenu
+    class QStatusBar
+    class QAction
+  }
+}
+
+QMainWindow  <|-- ListerMainWindow
+
+QMenu o-> "*" QAction
+QMenuBar o-> "*" QMenu
+
+ListerMainWindow o-> "*" QWidget
+ListerMainWindow o-> "*" QPushButton
+ListerMainWindow o-> "*" QLabel
+ListerMainWindow o-> "*" QLCDNumber
+ListerMainWindow o-> "*" QMenuBar
+ListerMainWindow o-> "*" QStatusBar
+ListerMainWindow o-> "*" QListWidget
+
+
+@enduml
