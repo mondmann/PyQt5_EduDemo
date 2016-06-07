@@ -1,0 +1,31 @@
+@startuml
+skinparam style strictuml
+
+actor User
+boundary Console
+
+activate ":Main"
+":Main" -> Console : ask_for_specific_input()
+note right: program is blocking
+
+activate Console
+
+Console -> User : ask_for_specific_input()
+... some minutes later...
+User -->>X Console
+
+activate User
+note left: different input desired
+
+User -->> Console : specific_input
+deactivate User
+
+Console -->> ":Main" : specific_input
+deactivate Console
+
+note right: program continues
+":Main" ->] : do_something()
+":Main" <--] : return
+deactivate ":Main"
+
+@enduml
