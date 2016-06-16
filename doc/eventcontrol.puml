@@ -1,0 +1,23 @@
+@startuml
+|User <img actor.png>|
+start
+:trigger Event;
+
+|Eventloop|
+:foo;
+fork
+:test;
+fork again
+:test;
+end fork
+
+
+'(*)  --> "check input"
+'If "input is verbose" then
+'--> [Yes] "turn on verbosity"
+'--> "run command"
+'else
+'--> "run command"
+'Endif
+'-->(*)
+@enduml
